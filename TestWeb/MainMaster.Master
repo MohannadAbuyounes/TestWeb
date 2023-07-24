@@ -1,0 +1,82 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MainMaster.master.cs" Inherits="TestWeb.MainMaster" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+        <meta name="viewport" content="width=device-width, initial-scale=1" charset="utf-8">
+		<link rel="icon" type="image/ico" href="Images/icon.ico" />
+		<link rel="stylesheet" href="Styles/style.css">
+		<link rel="stylesheet" href="Bootstrap/bootstrap.min.css">
+		<script src="Bootstrap/jquery.min.js"></script>
+		<script src="Bootstrap/popper.min.js"></script>
+		<script src="Bootstrap/bootstrap.min.js"></script> 
+</head>
+<body>
+    <form id="form1" runat="server">
+        <header>
+			<nav class="navbar navbar-expand-sm navbar-light bg-light">
+				<a href="Home.aspx" class="navbar-brand"><img src="Images/Head.jpg"></a>
+				<button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#sitebutton">
+				<span class="navbar-toggler-icon"></span>
+				</button>				
+				<div id="sitebutton" class="collapse navbar-collapse">
+					<ul class="navbar-nav">
+						<li class="nav-item"><a href="Home.aspx" class="nav-link">الرئيسية</a></li>
+						<li class="nav-item"><a href="#" class="nav-link">من نحن</a></li>
+						<li class="nav-item"><a href="#" class="nav-link">اتصل بنا</a></li>
+					</ul>
+					<ul class="navbar-nav mr-auto" id ="lstLogBtn"  runat="server">
+						<li class="nav-item"><a href="SignUp.aspx" class="nav-link btn btn-info">الاشتراك</a></li>
+						<li class="nav-item"><a href="Login.aspx" class="nav-link btn btn-info">تسجيل الدخول</a></li>						
+					</ul>
+							<ul class="navbar-nav mr-auto" id ="lstWelcome"  runat="server">
+						<li class="nav-item">مرحبا يا&nbsp; </li>
+						<li class="nav-item">
+							<asp:LinkButton ID="lbtnUser" runat="server"> </asp:LinkButton>
+						                 </li>			
+						<li class="nav-item">
+							<asp:LinkButton ID="lbtnLogOut" runat="server" class="nav-link btn btn-danger" OnClick="lbtnLogOut_Click">تسجيل الخروج</asp:LinkButton>
+						                     </li>			
+
+					</ul>
+				</div>
+			</nav>
+		</header>
+        	<div class="container">
+				<div id ="lstDataOfClenit" runat="server">
+			<button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#btnlist">البيانات</button>
+			<div class="collapse" id="btnlist">
+				<ul class="nav">
+					<li class="nav-item btn btn-outline-success"><a href="Customer.aspx" class="nav-link">العملاء</a></li>
+					<li class="nav-item btn btn-outline-success"><a href="Suppliers.aspx" class="nav-link">الموردون</a></li>
+					<li class="nav-item dropdown btn btn-outline-success" data-toggle="dropdown"><a href="#" class="nav-link dropdown-toggle">الأصناف</a>
+						<div class="dropdown-menu">
+							<a href="ProductCategory.aspx" class="dropdown-item">مجموعات الأصناف</a>
+							<a href="Products.aspx" class="dropdown-item">الأصناف</a>
+						</div>
+					</li>
+				</ul>
+			
+			</div>
+			</div>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+					</div>
+      <footer>
+			<div class="row">
+				<div class="col-md-4">الصلاح لتكنولوجيا المعلومات</div>
+				<div class="col-md-4 centertext">جميع الحقوق محفوظة</div>
+				<div class="col-md-4 lefttext"><a href="http://www.facebook.com" target="_blank"><img src="Images/fb.png"/></a>
+				<a href="http://www.twitter.com" target="_blank"><img src="Images/tw.png"/></a>
+				<a href="http://www.youtube.com" target="_blank"><img src="Images/yt.png"/></a>
+				</div>
+			</div>
+		</footer>
+    </form>
+</body>
+</html>
