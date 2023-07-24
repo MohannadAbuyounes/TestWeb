@@ -7,22 +7,22 @@ using System.Web.UI.WebControls;
 
 namespace TestWeb
 {
-    public partial class Customer1 : System.Web.UI.Page
+    public partial class categoies : System.Web.UI.Page
     {
         TestWeformDBEntities db = new TestWeformDBEntities();
+
         protected void Page_Load(object sender, EventArgs e)
         {
-            var CustomerList = from customerList in db.Customers
+            var catList = from cat in db.Categories
                                select new
                                {
-                                   customerList.CustomerID,
-                                   customerList.CompanyName,
-                                   customerList.ContactName,
-                                   customerList.City,
-                                   customerList.Country,
+                                   cat.CategoryID,
+                                   cat.CategoryName,
+                                   cat.Description,
+                               
 
                                };
-            grd.DataSource = CustomerList.ToList();
+            grd.DataSource = catList.ToList();
             grd.DataBind();
             HttpCookie httpCookie = new HttpCookie("cooklogin");
             httpCookie = Request.Cookies["cooklogin"];
@@ -36,18 +36,17 @@ namespace TestWeb
                 adminAdd.Visible = false;
 
             }
-
         }
 
         protected void grd_RowDataBound(object sender, GridViewRowEventArgs e)
         {
             if (e.Row.RowType == DataControlRowType.Header)
             {
-                e.Row.Cells[2].Text = "كود العميل";
-                e.Row.Cells[3].Text = " الشركة";
-                e.Row.Cells[4].Text = "اسم العميل";
-                e.Row.Cells[5].Text = " المدينة";
-                e.Row.Cells[6].Text = " الدولة";
+                e.Row.Cells[2].Text = "كود الفئة";
+                e.Row.Cells[3].Text = " اسم الفئة";
+                e.Row.Cells[4].Text = "الوصف";
+             
+
 
             }
         }
@@ -60,7 +59,8 @@ namespace TestWeb
             httpCookie = Request.Cookies["cooklogin"];
             if (httpCookie == null)
             {
-                Response.Redirect("login.aspx");
+                //admaincol.Visible = false;
+                //  Response.Redirect("login.aspx");
             }
             else
             {
@@ -71,16 +71,17 @@ namespace TestWeb
                     MultiView1.ActiveViewIndex = 1;
                 }
             }
-            
+
 
         }
 
         protected void btnDelete_Click(object sender, EventArgs e)
         {
-            var MyCust = db.Customers.Find(hf.Value);
-            db.Customers.Remove(MyCust);
+
+
+            db.Categories.Remove(db.Categories.Find(hf.Value));
             db.SaveChanges();
-            Response.Redirect("Customer.aspx");
+            Response.Redirect("Categorys.aspx");
             MultiView1.ActiveViewIndex = 0;
         }
 
@@ -89,6 +90,9 @@ namespace TestWeb
             MultiView1.ActiveViewIndex = 0;
         }
 
-     
+        protected void grd_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

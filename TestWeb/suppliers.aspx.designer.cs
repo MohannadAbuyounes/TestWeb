@@ -11,7 +11,7 @@ namespace TestWeb
 {
 
 
-    public partial class Customer1
+    public partial class suppliers
     {
 
         /// <summary>

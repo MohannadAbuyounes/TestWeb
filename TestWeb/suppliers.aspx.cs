@@ -7,47 +7,51 @@ using System.Web.UI.WebControls;
 
 namespace TestWeb
 {
-    public partial class Customer1 : System.Web.UI.Page
+    public partial class suppliers : System.Web.UI.Page
     {
+
         TestWeformDBEntities db = new TestWeformDBEntities();
+
         protected void Page_Load(object sender, EventArgs e)
         {
-            var CustomerList = from customerList in db.Customers
+            var supplierList = from s in db.Suppliers
                                select new
                                {
-                                   customerList.CustomerID,
-                                   customerList.CompanyName,
-                                   customerList.ContactName,
-                                   customerList.City,
-                                   customerList.Country,
+                                   s.SupplierID,
+                                   s.CompanyName,
+                                   s.ContactName,
+                                   s.City,
+                                   s.Country,
+                                   s.Phone
 
                                };
-            grd.DataSource = CustomerList.ToList();
+            grd.DataSource = supplierList.ToList();
             grd.DataBind();
             HttpCookie httpCookie = new HttpCookie("cooklogin");
             httpCookie = Request.Cookies["cooklogin"];
             if (httpCookie["username"] == HttpUtility.UrlDecode("ADMIN"))
             {
                 adminAdd.Visible = true;
-
+         
             }
             else
             {
                 adminAdd.Visible = false;
-
+             
             }
-
         }
 
         protected void grd_RowDataBound(object sender, GridViewRowEventArgs e)
         {
             if (e.Row.RowType == DataControlRowType.Header)
             {
-                e.Row.Cells[2].Text = "كود العميل";
+                e.Row.Cells[2].Text = "كود المورد";
                 e.Row.Cells[3].Text = " الشركة";
-                e.Row.Cells[4].Text = "اسم العميل";
+                e.Row.Cells[4].Text = "اسم المورد";
                 e.Row.Cells[5].Text = " المدينة";
                 e.Row.Cells[6].Text = " الدولة";
+                e.Row.Cells[7].Text = " الهاتف";
+
 
             }
         }
@@ -60,7 +64,8 @@ namespace TestWeb
             httpCookie = Request.Cookies["cooklogin"];
             if (httpCookie == null)
             {
-                Response.Redirect("login.aspx");
+                //admaincol.Visible = false;
+              //  Response.Redirect("login.aspx");
             }
             else
             {
@@ -71,16 +76,17 @@ namespace TestWeb
                     MultiView1.ActiveViewIndex = 1;
                 }
             }
-            
+
 
         }
 
         protected void btnDelete_Click(object sender, EventArgs e)
         {
-            var MyCust = db.Customers.Find(hf.Value);
-            db.Customers.Remove(MyCust);
+
+      
+            db.Suppliers.Remove(db.Suppliers.Find(hf.Value));
             db.SaveChanges();
-            Response.Redirect("Customer.aspx");
+            Response.Redirect("Suppliers.aspx");
             MultiView1.ActiveViewIndex = 0;
         }
 
@@ -89,6 +95,9 @@ namespace TestWeb
             MultiView1.ActiveViewIndex = 0;
         }
 
-     
+        protected void grd_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -75,11 +75,19 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Customer.aspx" />
+    <Content Include="newProduct.aspx" />
+    <Content Include="product.aspx" />
+    <Content Include="categoies.aspx" />
+    <Content Include="Customer.aspx">
+      <BrowseToURL>~/Home.aspx</BrowseToURL>
+    </Content>
     <Content Include="getData.aspx" />
     <Content Include="login.aspx" />
+    <Content Include="newCategory.aspx" />
     <Content Include="NewCustomer.aspx" />
+    <Content Include="newSupplier.aspx" />
     <Content Include="sendData.aspx" />
+    <Content Include="suppliers.aspx" />
     <Content Include="TestAddCustomer.aspx" />
     <Content Include="Bootstrap\bootstrap.min.css" />
     <Content Include="Bootstrap\bootstrap.min.js" />
@@ -107,10 +115,34 @@
       <LastGenOutput>TestWebModel.cs</LastGenOutput>
     </Content>
     <Content Include="ucSignUp.ascx" />
+    <Content Include="updateCategory.aspx" />
     <Content Include="updateCustomer.aspx" />
+    <Content Include="updateProduct.aspx" />
+    <Content Include="updateSupplier.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="newProduct.aspx.cs">
+      <DependentUpon>newProduct.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newProduct.aspx.designer.cs">
+      <DependentUpon>newProduct.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="product.aspx.cs">
+      <DependentUpon>product.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="product.aspx.designer.cs">
+      <DependentUpon>product.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="categoies.aspx.cs">
+      <DependentUpon>categoies.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="categoies.aspx.designer.cs">
+      <DependentUpon>categoies.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Customer.aspx.cs">
       <DependentUpon>Customer.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -132,6 +164,13 @@
     <Compile Include="login.aspx.designer.cs">
       <DependentUpon>login.aspx</DependentUpon>
     </Compile>
+    <Compile Include="newCategory.aspx.cs">
+      <DependentUpon>newCategory.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newCategory.aspx.designer.cs">
+      <DependentUpon>newCategory.aspx</DependentUpon>
+    </Compile>
     <Compile Include="NewCustomer.aspx.cs">
       <DependentUpon>NewCustomer.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -139,12 +178,26 @@
     <Compile Include="NewCustomer.aspx.designer.cs">
       <DependentUpon>NewCustomer.aspx</DependentUpon>
     </Compile>
+    <Compile Include="newSupplier.aspx.cs">
+      <DependentUpon>newSupplier.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newSupplier.aspx.designer.cs">
+      <DependentUpon>newSupplier.aspx</DependentUpon>
+    </Compile>
     <Compile Include="sendData.aspx.cs">
       <DependentUpon>sendData.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="sendData.aspx.designer.cs">
       <DependentUpon>sendData.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="suppliers.aspx.cs">
+      <DependentUpon>suppliers.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="suppliers.aspx.designer.cs">
+      <DependentUpon>suppliers.aspx</DependentUpon>
     </Compile>
     <Compile Include="TestAddCustomer.aspx.cs">
       <DependentUpon>TestAddCustomer.aspx</DependentUpon>
@@ -223,12 +276,33 @@
     <Compile Include="ucSignUp.ascx.designer.cs">
       <DependentUpon>ucSignUp.ascx</DependentUpon>
     </Compile>
+    <Compile Include="updateCategory.aspx.cs">
+      <DependentUpon>updateCategory.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="updateCategory.aspx.designer.cs">
+      <DependentUpon>updateCategory.aspx</DependentUpon>
+    </Compile>
     <Compile Include="updateCustomer.aspx.cs">
       <DependentUpon>updateCustomer.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="updateCustomer.aspx.designer.cs">
       <DependentUpon>updateCustomer.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="updateProduct.aspx.cs">
+      <DependentUpon>updateProduct.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="updateProduct.aspx.designer.cs">
+      <DependentUpon>updateProduct.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="updateSupplier.aspx.cs">
+      <DependentUpon>updateSupplier.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="updateSupplier.aspx.designer.cs">
+      <DependentUpon>updateSupplier.aspx</DependentUpon>
     </Compile>
     <Compile Include="User.cs">
       <DependentUpon>TestWebModel.tt</DependentUpon>
@@ -254,6 +328,7 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

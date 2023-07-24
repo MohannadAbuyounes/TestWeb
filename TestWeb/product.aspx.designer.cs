@@ -7,11 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace TestWeb
+namespace TestWeb.Bootstrap
 {
 
 
-    public partial class Customer1
+    public partial class product
     {
 
         /// <summary>

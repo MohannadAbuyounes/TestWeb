@@ -15,15 +15,20 @@
 		<script src="Bootstrap/jquery.min.js"></script>
 		<script src="Bootstrap/popper.min.js"></script>
 		<script src="Bootstrap/bootstrap.min.js"></script> 
+    <style type="text/css">
+        #lstDataOfClenit {
+            width: 431px;
+        }
+    </style>
 </head>
 <body>
     <form id="form1" runat="server">
         <header>
 			<nav class="navbar navbar-expand-sm navbar-light bg-light">
-				<a href="Home.aspx" class="navbar-brand"><img src="Images/Head.jpg"></a>
+					<a href="Home.aspx" class="navbar-brand"><img src="Images/Head.jpg"></a>
 				<button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#sitebutton">
 				<span class="navbar-toggler-icon"></span>
-				</button>				
+				</button>			
 				<div id="sitebutton" class="collapse navbar-collapse">
 					<ul class="navbar-nav">
 						<li class="nav-item"><a href="Home.aspx" class="nav-link">الرئيسية</a></li>
@@ -34,17 +39,18 @@
 						<li class="nav-item"><a href="SignUp.aspx" class="nav-link btn btn-info">الاشتراك</a></li>
 						<li class="nav-item"><a href="Login.aspx" class="nav-link btn btn-info">تسجيل الدخول</a></li>						
 					</ul>
-							<ul class="navbar-nav mr-auto" id ="lstWelcome"  runat="server">
+					<ul class="navbar-nav mr-auto" id ="lstWelcome"  runat="server">
 						<li class="nav-item">مرحبا يا&nbsp; </li>
 						<li class="nav-item">
 							<asp:LinkButton ID="lbtnUser" runat="server"> </asp:LinkButton>
 						                 </li>			
 						<li class="nav-item">
 							<asp:LinkButton ID="lbtnLogOut" runat="server" class="nav-link btn btn-danger" OnClick="lbtnLogOut_Click">تسجيل الخروج</asp:LinkButton>
-						                     </li>			
-
+						 </li>	
 					</ul>
+					
 				</div>
+				
 			</nav>
 		</header>
         	<div class="container">
@@ -54,11 +60,24 @@
 				<ul class="nav">
 					<li class="nav-item btn btn-outline-success"><a href="Customer.aspx" class="nav-link">العملاء</a></li>
 					<li class="nav-item btn btn-outline-success"><a href="Suppliers.aspx" class="nav-link">الموردون</a></li>
-					<li class="nav-item dropdown btn btn-outline-success" data-toggle="dropdown"><a href="#" class="nav-link dropdown-toggle">الأصناف</a>
+					<li class="nav-item dropdown btn btn-outline-success" data-toggle="dropdown">
+						
+
+
+						<div class="dropdown">
+							<button  Class="btn dropdown-toggle" data-toggle="dropdown" type="button">
+								الأصناف
+							</button>
 						<div class="dropdown-menu">
-							<a href="ProductCategory.aspx" class="dropdown-item">مجموعات الأصناف</a>
-							<a href="Products.aspx" class="dropdown-item">الأصناف</a>
+							<a href="categoies.aspx" class="dropdown-item">مجموعات الأصناف</a>
+							<a href="product.aspx" class="dropdown-item">الأصناف</a>
 						</div>
+							</div>
+
+
+
+
+
 					</li>
 				</ul>
 			

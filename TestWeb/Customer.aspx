@@ -5,7 +5,7 @@
     <asp:MultiView ID="MultiView1" runat="server" ActiveViewIndex="0">
         <asp:View ID="View1" runat="server">
             <div class="row">
-                <a href ="NewCustomer.aspx" class="btn btn-primary">جديد</a>         </div>
+                <a href ="NewCustomer.aspx" class="btn btn-primary" runat="server" id="adminAdd" >جديد</a>         </div>
                 <asp:GridView ID="grd" runat="server" class ="table table-striped table-hover" OnRowDataBound="grd_RowDataBound"  OnRowDeleting="grd_RowDeleting" >
                     <Columns>
                         <asp:HyperLinkField HeaderText="تعديل" NavigateUrl="editCustomer.aspx" Text="تعديل" DataNavigateUrlFields="CustomerID" DataNavigateUrlFormatString="updateCustomer.aspx?id={0}" />
